@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PURE BLAST AERIAL — Drone Washing Crew · GTA</title>
+<meta name="description" content="Industrial drone washing crew for high-rise, commercial and industrial buildings. Book a flyover in 60 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f2f0eb;--paper2:#e8e5de;--ink:#121212;--orange:#ff5a1f;--orange2:#e04a12;--grey:#6b6b6b;--line:#121212}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Archivo',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.black{font-family:'Archivo Black','Archivo',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;max-width:100%}
+  .wrap{width:min(1280px,calc(100% - 40px));margin:0 auto}
+  .btn{display:inline-flex;align-items:center;gap:12px;padding:18px 28px;border:2px solid var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:14px;cursor:pointer;font-family:inherit;transition:.15s;background:transparent;color:var(--ink)}
+  .btn-fill{background:var(--ink);color:var(--paper)}
+  .btn-orange{background:var(--orange);border-color:var(--orange);color:#fff}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+  .btn-orange:hover{box-shadow:4px 4px 0 var(--ink)}
+
+  /* ticker */
+  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:10px 0;border-bottom:2px solid var(--ink)}
+  .ticker div{display:inline-block;animation:tick 28s linear infinite}
+  .ticker span{margin:0 28px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .ticker span::before{content:"◆";color:var(--orange);margin-right:28px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  nav{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2px solid var(--ink)}
+  nav .wrap{display:flex;align-items:stretch;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Archivo Black';font-size:18px;text-transform:uppercase;letter-spacing:-.01em}
+  .brand i{width:34px;height:34px;background:var(--orange);display:grid;place-items:center}
+  .brand svg{width:20px;height:20px}
+  .nl{display:flex}
+  .nl a{display:flex;align-items:center;padding:0 22px;border-left:2px solid var(--ink);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+  .nl a:hover{background:var(--ink);color:var(--paper)}
+  .nl a.cta{background:var(--orange);color:#fff}
+  @media(max-width:900px){.nl a:not(.cta){display:none}}
+
+  /* hero */
+  .hero{border-bottom:2px solid var(--ink)}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;min-height:82vh}
+  .hero .copy{padding:70px 48px 60px 0;display:flex;flex-direction:column;justify-content:space-between;border-right:2px solid var(--ink)}
+  .hero h1{font-size:clamp(56px,8.5vw,136px);margin:20px 0 28px}
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero p{font-size:18px;max-width:46ch;color:#333;margin-bottom:34px}
+  .hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+  .hero .media{position:relative;overflow:hidden;background:var(--ink)}
+  .hero video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:contrast(1.05) saturate(.9)}
+  .hero .stamp{position:absolute;right:24px;bottom:24px;width:130px;height:130px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;text-align:center;font-family:'Archivo Black';font-size:13px;text-transform:uppercase;line-height:1.1;animation:spin 14s linear infinite;padding:16px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);margin-top:40px}
+  .specs div{padding:18px 18px 18px 0;border-right:2px solid var(--ink)}
+  .specs div:last-child{border-right:0}
+  .specs b{display:block;font-family:'Archivo Black';font-size:30px;line-height:1}
+  .specs span{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:.06em}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero .copy{border-right:0;border-bottom:2px solid var(--ink);padding:50px 0 40px}.hero .media{min-height:380px}}
+
+  /* section header rows */
+  .row-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:60px 0 28px;border-bottom:2px solid var(--ink);margin-bottom:0}
+  .row-head h2{font-size:clamp(40px,6vw,88px)}
+  .row-head .mono{color:var(--grey);padding-bottom:10px}
+
+  /* services as numbered rows */
+  .rows{border-bottom:2px solid var(--ink)}
+  .srow{display:grid;grid-template-columns:90px 1.2fr 1.6fr 220px;align-items:center;gap:30px;padding:26px 0;border-bottom:1px solid #b5b1a8;cursor:pointer;transition:.2s;position:relative}
+  .srow:last-child{border-bottom:0}
+  .srow:hover{background:var(--ink);color:var(--paper)}
+  .srow .n{font-family:'Archivo Black';font-size:34px;color:var(--orange)}
+  .srow h3{font-size:clamp(22px,2.6vw,36px)}
+  .srow p{font-size:15px;color:var(--grey)}
+  .srow:hover p{color:#c9c5bc}
+  .srow .thumb{height:120px;overflow:hidden;background:var(--paper2)}
+  .srow video{width:100%;height:100%;object-fit:cover}
+  @media(max-width:900px){.srow{grid-template-columns:50px 1fr;gap:12px}.srow p{grid-column:2}.srow .thumb{grid-column:1/-1;height:160px}}
+
+  /* why — big type manifesto */
+  .manifesto{padding:90px 0;border-bottom:2px solid var(--ink);background:var(--ink);color:var(--paper)}
+  .manifesto h2{font-size:clamp(34px,5vw,74px);max-width:16ch}
+  .manifesto h2 s{color:#666;text-decoration-color:var(--orange);text-decoration-thickness:6px}
+  .manifesto h2 em{font-style:normal;color:var(--orange)}
+  .manifesto .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#444;border:2px solid #444;margin-top:60px}
+  .manifesto .grid div{background:var(--ink);padding:28px}
+  .manifesto .grid b{display:block;font-family:'Archivo Black';font-size:56px;line-height:1;color:var(--orange)}
+  .manifesto .grid span{font-size:14px;color:#aaa;text-transform:uppercase;letter-spacing:.06em}
+  @media(max-width:800px){.manifesto .grid{grid-template-columns:1fr}}
+
+  /* horizontal reel */
+  .reel-wrap{border-bottom:2px solid var(--ink);overflow:hidden}
+  .reel{display:flex;gap:2px;background:var(--ink);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab}
+  .reel::-webkit-scrollbar{display:none}
+  .reel div{flex:0 0 min(70vw,560px);aspect-ratio:16/10;position:relative;scroll-snap-align:start;background:#222}
+  .reel video{width:100%;height:100%;object-fit:cover}
+  .reel span{position:absolute;left:0;bottom:0;background:var(--orange);color:#fff;padding:8px 14px;font-family:'JetBrains Mono';font-size:12px;text-transform:uppercase}
+  .reel-hint{display:flex;justify-content:space-between;padding:14px 0;font-family:'JetBrains Mono';font-size:12px;text-transform:uppercase;color:var(--grey)}
+
+  /* pricing programs */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);border-top:0}
+  .plan{padding:34px 30px;border-right:2px solid var(--ink);display:flex;flex-direction:column;gap:18px;background:var(--paper)}
+  .plan:last-child{border-right:0}
+  .plan.hot{background:var(--orange);color:#fff}
+  .plan h3{font-size:30px}
+  .plan .price{font-family:'Archivo Black';font-size:44px;line-height:1}
+  .plan .price small{font-family:'Archivo';font-size:13px;text-transform:none;letter-spacing:0;font-weight:500;display:block;margin-top:6px;opacity:.75}
+  .plan ul{list-style:none;display:grid;gap:10px;font-size:15px;flex:1}
+  .plan li::before{content:"→ ";color:var(--orange);font-weight:700}
+  .plan.hot li::before{color:#fff}
+  .plan.hot .btn{border-color:#fff;color:#fff}
+  .plan.hot .btn:hover{box-shadow:4px 4px 0 #fff}
+  @media(max-width:900px){.plans{grid-template-columns:1fr}.plan{border-right:0;border-bottom:2px solid var(--ink)}.plan:last-child{border-bottom:0}}
+
+  /* service area + hours strip */
+  .area{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--ink)}
+  .area>div{padding:50px 0}
+  .area>div:first-child{border-right:2px solid var(--ink);padding-right:48px}
+  .area>div:last-child{padding-left:48px}
+  .area h3{font-size:30px;margin-bottom:18px}
+  .cities{display:flex;flex-wrap:wrap;gap:8px}
+  .cities span{border:2px solid var(--ink);padding:8px 14px;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+  .cities span.on{background:var(--ink);color:var(--paper)}
+  .hours{display:grid;gap:8px;font-size:15px}
+  .hours div{display:flex;justify-content:space-between;border-bottom:1px solid #b5b1a8;padding:8px 0}
+  @media(max-width:800px){.area{grid-template-columns:1fr}.area>div:first-child{border-right:0;border-bottom:2px solid var(--ink);padding-right:0}.area>div:last-child{padding-left:0}}
+
+  /* wizard */
+  .book{background:var(--ink);color:var(--paper);padding:90px 0;border-bottom:2px solid var(--ink)}
+  .book .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+  .book h2{font-size:clamp(44px,6vw,90px)}
+  .book h2 em{font-style:normal;color:var(--orange)}
+  .book p{color:#aaa;font-size:17px;margin-top:20px;max-width:40ch}
+  .wiz{background:var(--paper);color:var(--ink);border:2px solid var(--ink);padding:0}
+  .wiz .prog{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--ink)}
+  .wiz .prog div{padding:14px 18px;font-family:'JetBrains Mono';font-size:12px;text-transform:uppercase;border-right:2px solid var(--ink);color:var(--grey)}
+  .wiz .prog div:last-child{border-right:0}
+  .wiz .prog div.on{background:var(--orange);color:#fff}
+  .wiz .prog div.done{background:var(--ink);color:var(--paper)}
+  .wstep{display:none;padding:28px}
+  .wstep.on{display:block}
+  .wstep h3{font-size:26px;margin-bottom:18px}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+  .choice{border:2px solid var(--ink);padding:18px;cursor:pointer;font-weight:600;display:flex;flex-direction:column;gap:6px;transition:.15s;background:#fff}
+  .choice small{font-weight:400;color:var(--grey);font-size:13px}
+  .choice.on{background:var(--ink);color:var(--paper)}
+  .choice.on small{color:#bbb}
+  .wiz input,.wiz select,.wiz textarea{width:100%;padding:14px;border:2px solid var(--ink);background:#fff;font:inherit;font-size:15px;margin-bottom:10px}
+  .wiz textarea{min-height:90px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .wnav{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
+  .counter{font-family:'JetBrains Mono';font-size:12px;color:var(--grey);margin-bottom:14px;text-transform:uppercase}
+  .summary{border:2px dashed var(--ink);padding:16px;font-size:14px;margin-bottom:16px;display:grid;gap:4px}
+  .summary b{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;color:var(--grey);display:block}
+  @media(max-width:900px){.book .wrap{grid-template-columns:1fr}.choices,.two{grid-template-columns:1fr}}
+
+  footer{padding:40px 0 30px;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--grey)}
+  footer b{color:var(--ink)}
+
+  .demo{position:fixed;left:16px;bottom:16px;z-index:60;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;background:var(--ink);color:var(--paper)}
+  .rv{opacity:0;transform:translateY(18px);transition:.6s ease}.rv.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="ticker"><div><span>No swing stage</span><span>No boom lift</span><span>No roof anchors</span><span>Transport Canada certified</span><span>$5M insured</span><span>30+ storeys</span><span>GTA · Hamilton · London</span><span>Book a flyover in 60 seconds</span><span>No swing stage</span><span>No boom lift</span><span>No roof anchors</span><span>Transport Canada certified</span><span>$5M insured</span><span>30+ storeys</span><span>GTA · Hamilton · London</span><span>Book a flyover in 60 seconds</span></div></div>
+
+<nav><div class="wrap">
+  <a href="#" class="brand"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><rect x="9.5" y="9.5" width="5" height="5" fill="#fff"/><path d="M7 7l2.5 2.5M17 7l-2.5 2.5M7 17l2.5-2.5M17 17l-2.5-2.5"/></svg></i>Pure Blast Aerial</a>
+  <div class="nl"><a href="#services">Services</a><a href="#work">Work</a><a href="#plans">Programs</a><a href="#area">Area</a><a href="#book" class="cta">Book a flyover</a></div>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="copy">
+      <div>
+        <span class="mono">Drone washing crew — Southern Ontario</span>
+        <h1>We wash<br>what you<br><em>can't reach.</em></h1>
+        <p>Industrial cleaning drones for high-rise glass, facades, roofs and concrete. Ground crew only. Done in a day. Filmed in 4K.</p>
+        <div class="acts"><a href="#book" class="btn btn-orange">Book a flyover</a><a href="#work" class="btn">Watch it work</a></div>
+      </div>
+      <div class="specs"><div><b>100m</b><span>Vertical reach</span></div><div><b>2000</b><span>PSI on demand</span></div><div><b>0</b><span>Bodies on ropes</span></div></div>
+    </div>
+    <div class="media">
+      <video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/4687098/4687098-hd_1920_1080_24fps.mp4" type="video/mp4"></video>
+      <div class="stamp">Certified · Insured · Ontario</div>
+    </div>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="row-head"><h2>Services</h2><span class="mono">Hover a row</span></div>
+    <div class="rows">
+      <a class="srow" href="#book"><div class="n">01</div><h3>High-rise<br>windows</h3><p>Pure-water, spot-free glass on condos, offices and hotels. Balconies and railings included. No anchors, no stage, no stranger outside unit 2204.</p><div class="thumb"><video muted loop playsinline><source src="https://videos.pexels.com/video-files/35280467/14946045_640_360_25fps.mp4" type="video/mp4"></video></div></a>
+      <a class="srow" href="#book"><div class="n">02</div><h3>Facade<br>soft wash</h3><p>Low pressure, biodegradable detergent. Algae, carbon and pollution film off stucco, precast, brick and metal panel — without chewing up the surface.</p><div class="thumb"><video muted loop playsinline><source src="https://videos.pexels.com/video-files/28988755/12538506_1280_720_30fps.mp4" type="video/mp4"></video></div></a>
+      <a class="srow" href="#book"><div class="n">03</div><h3>Pressure<br>washing</h3><p>Up to 2,000 PSI exactly where a boom truck can't park. Parkades, loading docks, pylon signs, overpasses, silos, water towers.</p><div class="thumb"><video muted loop playsinline><source src="https://videos.pexels.com/video-files/6160411/6160411-hd_1280_720_24fps.mp4" type="video/mp4"></video></div></a>
+      <a class="srow" href="#book"><div class="n">04</div><h3>Roofs &amp;<br>solar</h3><p>Moss and debris off membrane and metal roofs. Solar arrays washed with pure water for a measurable output bump. Nobody sets foot up there.</p><div class="thumb"><video muted loop playsinline><source src="https://videos.pexels.com/video-files/29667495/12761812_1262_540_30fps.mp4" type="video/mp4"></video></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="wrap rv">
+    <span class="mono" style="color:var(--orange)">Why drones</span>
+    <h2 style="margin-top:18px"><s>Permits. Road closures. Anchor inspections. Three weeks.</s> <em>One truck, one pilot, one day.</em></h2>
+    <div class="grid">
+      <div><b>-60%</b><span>Typical cost vs. swing stage</span></div>
+      <div><b>&lt;1h</b><span>Setup time on site</span></div>
+      <div><b>4K</b><span>Footage of every pass, every job</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- REEL -->
+<section id="work" style="padding-top:0">
+  <div class="wrap"><div class="row-head"><h2>The work</h2><span class="mono">Drag →</span></div></div>
+  <div class="reel-wrap">
+    <div class="reel" id="reel">
+      <div><video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/4687098/4687098-hd_1280_720_24fps.mp4" type="video/mp4"></video><span>Toronto · 24 storeys · windows</span></div>
+      <div><video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/29667495/12761812_1262_540_30fps.mp4" type="video/mp4"></video><span>Hamilton · 12 storeys · glass + panel</span></div>
+      <div><video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/9999365/9999365-hd_720_1280_25fps.mp4" type="video/mp4"></video><span>Pre-flight · tethered rig</span></div>
+      <div><video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/6160411/6160411-hd_1280_720_24fps.mp4" type="video/mp4"></video><span>Mississauga · parkade · 2000 PSI</span></div>
+      <div><video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/28988755/12538506_1280_720_30fps.mp4" type="video/mp4"></video><span>Office tower · precast soft wash</span></div>
+    </div>
+  </div>
+  <div class="wrap reel-hint"><span>05 clips</span><span>Real footage replaces stock on launch</span></div>
+</section>
+
+<!-- PLANS -->
+<section id="plans" style="padding-top:0">
+  <div class="wrap">
+    <div class="row-head"><h2>Programs</h2><span class="mono">Per-building pricing after a flyover</span></div>
+    <div class="plans">
+      <div class="plan"><h3>One-off</h3><div class="price">Quote<small>Single visit, any service</small></div><ul><li>Site flyover &amp; firm quote in 24h</li><li>Pick any surface</li><li>4K before/after footage</li><li>Done in 1–2 days</li></ul><a href="#book" class="btn">Book a flyover</a></div>
+      <div class="plan hot"><h3>Seasonal</h3><div class="price">-15%<small>Spring + fall visits</small></div><ul><li>Two scheduled cleans per year</li><li>Priority booking windows</li><li>Locked pricing for 12 months</li><li>Condo board report pack</li></ul><a href="#book" class="btn">Start seasonal</a></div>
+      <div class="plan"><h3>Annual</h3><div class="price">-25%<small>Quarterly program</small></div><ul><li>Four visits per year</li><li>Facade condition log</li><li>Emergency graffiti response</li><li>Dedicated account contact</li></ul><a href="#book" class="btn">Talk annual</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="area" style="padding-top:0">
+  <div class="wrap area">
+    <div><h3>Where we fly</h3><div class="cities"><span class="on">Toronto</span><span class="on">Mississauga</span><span class="on">Brampton</span><span class="on">Vaughan</span><span class="on">Oakville</span><span class="on">Burlington</span><span class="on">Hamilton</span><span class="on">London</span><span>Kitchener</span><span>Niagara</span><span>Ottawa (by request)</span></div></div>
+    <div><h3>Crew hours</h3><div class="hours"><div><span>Mon – Fri</span><b>6am – 7pm</b></div><div><span>Saturday</span><b>7am – 5pm</b></div><div><span>Sunday</span><b>By arrangement</b></div><div><span>Dispatch</span><b><a href="tel:+12899064458">(289) 906-4458</a></b></div></div></div>
+  </div>
+</section>
+
+<!-- WIZARD -->
+<section class="book" id="book">
+  <div class="wrap">
+    <div>
+      <span class="mono" style="color:var(--orange)">Book a flyover</span>
+      <h2 style="margin-top:16px">60 seconds.<br>Then we <em>fly.</em></h2>
+      <p>A flyover is a free drone pass of your building. We film every elevation, send you the footage and a firm quote. No ladder, no salesman in the lobby.</p>
+      <p style="margin-top:14px;color:#666;font-size:14px">Prefer to talk? <a href="tel:+12899064458" style="color:var(--paper);text-decoration:underline">(289) 906-4458</a> · <a href="mailto:info@pureblastsolutions.ca" style="color:var(--paper);text-decoration:underline">info@pureblastsolutions.ca</a></p>
+    </div>
+    <div class="wiz" id="wiz">
+      <div class="prog"><div class="on">01 Building</div><div>02 Job</div><div>03 Contact</div></div>
+      <div class="wstep on">
+        <div class="counter">Step 1 of 3</div>
+        <h3>What are we flying?</h3>
+        <div class="choices" data-key="building">
+          <div class="choice on">Condo / residential<small>Boards &amp; property managers</small></div>
+          <div class="choice">Office / commercial<small>Towers, retail, plazas</small></div>
+          <div class="choice">Hotel / hospitality<small>Occupied, off-hours work</small></div>
+          <div class="choice">Industrial / municipal<small>Silos, towers, plants, arenas</small></div>
+        </div>
+        <div class="two"><input type="text" id="addr" placeholder="Building address"><input type="number" id="storeys" placeholder="Storeys (approx.)"></div>
+        <div class="wnav"><span></span><button class="btn btn-fill" data-next>Next →</button></div>
+      </div>
+      <div class="wstep">
+        <div class="counter">Step 2 of 3</div>
+        <h3>What needs cleaning?</h3>
+        <div class="choices" data-key="job">
+          <div class="choice on">Windows &amp; glass</div>
+          <div class="choice">Facade / cladding</div>
+          <div class="choice">Concrete / parkade</div>
+          <div class="choice">Roof / solar</div>
+        </div>
+        <select id="when"><option>As soon as possible</option><option>Within a month</option><option>This season</option><option>Just pricing for now</option></select>
+        <textarea id="notes" placeholder="Anything else? Access, timing, problem areas…"></textarea>
+        <div class="wnav"><button class="btn" data-prev>← Back</button><button class="btn btn-fill" data-next>Next →</button></div>
+      </div>
+      <div class="wstep">
+        <div class="counter">Step 3 of 3</div>
+        <h3>Where do we send the footage?</h3>
+        <div class="summary" id="sum"></div>
+        <div class="two"><input type="text" placeholder="Your name"><input type="text" placeholder="Company / building"></div>
+        <div class="two"><input type="email" placeholder="Email"><input type="tel" placeholder="Phone"></div>
+        <div class="wnav"><button class="btn" data-prev>← Back</button><button class="btn btn-orange" id="finish">Book my flyover</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span><b>Pure Blast Aerial</b> · A Pure Blast Solutions company</span><span>Transport Canada RPAS · $5M insured · WSIB</span><span>© 2026 · Southern Ontario</span></div></footer>
+<div class="demo">Demo v3 · Fuller Media</div>
+
+<script>
+  // row videos play on hover
+  document.querySelectorAll('.srow').forEach(r=>{const v=r.querySelector('video');r.onmouseenter=()=>v.play().catch(()=>{});r.onmouseleave=()=>v.pause()});
+  // drag scroll on reel
+  const reel=document.getElementById('reel');let down=false,sx=0,sl=0;
+  reel.addEventListener('mousedown',e=>{down=true;sx=e.pageX;sl=reel.scrollLeft});
+  addEventListener('mouseup',()=>down=false);
+  reel.addEventListener('mousemove',e=>{if(!down)return;reel.scrollLeft=sl-(e.pageX-sx)});
+  // wizard
+  const steps=[...document.querySelectorAll('.wstep')],prog=[...document.querySelectorAll('.prog div')];let cur=0;const picks={building:'Condo / residential',job:'Windows & glass'};
+  document.querySelectorAll('.choices').forEach(g=>g.querySelectorAll('.choice').forEach(c=>c.onclick=()=>{g.querySelectorAll('.choice').forEach(x=>x.classList.remove('on'));c.classList.add('on');picks[g.dataset.key]=c.childNodes[0].textContent.trim()}));
+  function show(i){cur=i;steps.forEach((s,k)=>s.classList.toggle('on',k===i));prog.forEach((p,k)=>{p.classList.toggle('on',k===i);p.classList.toggle('done',k<i)});
+    if(i===2){document.getElementById('sum').innerHTML=`<div><b>Building</b>${picks.building} · ${document.getElementById('storeys').value||'?'} storeys · ${document.getElementById('addr').value||'address TBD'}</div><div><b>Job</b>${picks.job} · ${document.getElementById('when').value}</div>`}}
+  document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>show(Math.min(2,cur+1)));
+  document.querySelectorAll('[data-prev]').forEach(b=>b.onclick=()=>show(Math.max(0,cur-1)));
+  document.getElementById('finish').onclick=function(){this.textContent='Booked ✓ — footage within 5 days';this.disabled=true};
+  // reveal + lazy video
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(v.closest('.srow'))return;e.isIntersecting?v.play().catch(()=>{}):v.pause()}),{rootMargin:'200px'});
+  document.querySelectorAll('video').forEach(v=>vio.observe(v));
+</script>
+</body>
+</html>
